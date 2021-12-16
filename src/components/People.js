@@ -4,7 +4,8 @@ class People extends Component {
     constructor(){
         super()
         this.state= {
-            people:[]
+            people:[],
+            person:""
         }
     }
 
@@ -40,14 +41,14 @@ class People extends Component {
            
         <form onSubmit={this.handleSubmit}>
             <input 
-             onInput={this.handleInput}
+
             name="name" 
             id="name"
             placeholder="Find Your Person"
             
                 />
             
-            <button id="button" type="Submit" >Submit</button>   
+            <button id="button" onClick={this.handleInput} type="Submit" >Submit</button>   
     
 
         </form>
