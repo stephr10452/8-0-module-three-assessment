@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 
 class Nav extends Component{
     render (){
-      return <div className="Nav">
+      return <nav>
 
           <Link to="/">
               
@@ -20,7 +20,7 @@ class Nav extends Component{
           <Link to="/people">People</Link>
           <Link to="locations">Locations</Link>
 
-      </div>
+      </nav>
     }
 }
 export default Nav

@@ -34,15 +34,21 @@ class Movies extends Component {
         let dropDown = this.state.movies.map((movie)=>{
             return <option>{movie.title}</option>;
         })
-      return <div className="Movies">
+        let currentMovie = this.state.movies.find((movie)=>{
+            return movie.title === this.state.movieselected
+        })
+      return <movies>
       
-      <h1>Select a Movie</h1>
+       <h1>Select a Movie</h1>
 
-      <select>
+       <select onChange={this.handleDropDown}>
           <option></option>
           {dropDown}
-      </select>
-      </div>
+       </select>
+      <h3> Title:{currentMovie ? currentMovie.title : null} </h3>
+        <h3>Release Date:{currentMovie ? currentMovie.release_date : null} </h3>
+       <h3> Description:{currentMovie ? currentMovie.description : null} </h3>
+      </movies >
     }
   }
   

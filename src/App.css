@@ -7,7 +7,7 @@
   height: 50px;
 }
 
-.Nav {
+nav {
   display: grid;
   grid-template-columns: repeat(4,1fr);
   text-align:center;
