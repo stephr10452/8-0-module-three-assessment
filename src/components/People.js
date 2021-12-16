@@ -8,6 +8,9 @@ class People extends Component {
             person:""
         }
     }
+    componentDidMount(){
+        this.fetchPeople();
+    }
 
     fetchPeople = () => {
         fetch("https://ghibliapi.herokuapp.com/people")
@@ -22,7 +25,7 @@ class People extends Component {
    
     handleInput=(event)=>{
         this.setState({
-            [event.target.name]: event.target.value
+            person: event.target.value
         })
     }
 
@@ -34,6 +37,18 @@ class People extends Component {
      
     
     render() {
+        let onePerson = this.state.people.map((person)=>{
+            if (person.name=== this.state.person) {
+                return (
+                <div>
+                 <h3>Name:{person.name}</h3>
+                 <h3>Age:{person.age}</h3>
+                 <h3>Gender:{person.gener}</h3>
+                </div>
+                )
+                
+            }
+        })
         
       return <people>
       
@@ -41,6 +56,7 @@ class People extends Component {
            
         <form onSubmit={this.handleSubmit}>
             <input 
+            input onChange={this.handleInput}
 
             name="name" 
             id="name"
@@ -48,10 +64,11 @@ class People extends Component {
             
                 />
             
-            <button id="button" onClick={this.handleInput} type="Submit" >Submit</button>   
+            <button id="button" type="Submit" >Submit</button>   
     
 
         </form>
+        {onePerson}
       </people>;
     }
   }
